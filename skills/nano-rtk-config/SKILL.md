@@ -42,6 +42,7 @@ To get started with the NANO RTK Receiver:
 ## Core rules
 
 - If the user gives only the IP, use that as the device base URL and continue with API discovery.
+- If the user asks to find the device on the local network, do not require a subnet up front unless it is actually needed for the scan.
 - Ask follow-up questions only for missing intent or credentials.
 - Do not reset configuration, reboot, or upload firmware unless the user explicitly asks.
 - Start with read-only discovery before proposing changes.
@@ -75,6 +76,10 @@ Notes:
 - The script accepts an IP, hostname, or full base URL.
 - A path like `/system/info` is automatically expanded to `/api/v1/system/info`.
 - A path that already starts with `/api/` is sent unchanged.
+- For zero-setup local discovery, use `--discover-local` to infer likely local IPv4 subnets before scanning for reachable `:80` services and confirming devices through `GET /system/info`.
+- For local-network discovery, use `--discover-subnet 192.168.4.0/24` to first find reachable `:80` services on the subnet and then confirm NANO RTK devices with read-only `GET /system/info` probes.
+- Discovery uses host-level concurrency by default; do not add segment-level tuning unless a specific network requires it.
+- For user-facing prompts, prefer natural wording such as "Find the NANO RTK device on my local network" instead of exposing subnet notation unless the user is already working at that level.
 
 ## Endpoint selection
 

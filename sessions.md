@@ -29,3 +29,8 @@
 - Added a first-use onboarding flow to `README.md` and `skills/nano-rtk-config/SKILL.md` so users are guided to join `NANO_RTK_xxxx`, use password `datagnss`, open `192.168.4.1`, configure STA Wi-Fi, and then retrieve the LAN IP for follow-up configuration.
 - Added a reusable standard onboarding reply to `skills/nano-rtk-config/SKILL.md` so broad "How do I use it?" requests can be answered consistently in the user's own language before IP-based configuration begins.
 - Polished the public-facing onboarding wording in `README.md` and `skills/nano-rtk-config/SKILL.md` to sound more natural for end users, and added a reusable English example reply for release readiness.
+- Added local subnet discovery to `nano_rtk_api.py` with `--discover-subnet`, two-stage LAN detection that first checks reachable `:80` services and then confirms devices through `GET /system/info`, plus unit coverage for the discovery flow.
+- Updated the discovery wording in `README.md` and `skills/nano-rtk-config/SKILL.md` so public-facing prompts ask to find the device on the local network without requiring users to specify subnet notation up front.
+- Added `--discover-local` to `nano_rtk_api.py` so the helper can infer likely local IPv4 subnets automatically before scanning and confirming NANO RTK devices, with unit coverage for local IP and subnet inference.
+- Relaxed the default helper timeout to 3 seconds so local discovery is more tolerant of slower LAN responses, and updated the README discovery examples to rely on the new default.
+- Simplified LAN discovery back to host-level concurrency, removing the temporary segment-based scanning path so the public helper keeps the faster and cleaner default behavior.

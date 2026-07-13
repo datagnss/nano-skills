@@ -101,6 +101,8 @@ Typical prompts that should trigger this skill:
 - `Inspect the current status on 10.10.168.148.`
 - `Switch 10.10.168.159 to rover mode and configure the NTRIP client.`
 - `Check whether 10.10.168.148 supports NTRIP server mode.`
+- `Find the NANO RTK device on my local network.`
+- `Help me find the IP address of my NANO RTK Receiver.`
 
 The bundled UI metadata lives in `skills/nano-rtk-config/agents/openai.yaml`.
 
@@ -130,6 +132,18 @@ Query a device with the bundled helper:
 python skills/nano-rtk-config/scripts/nano_rtk_api.py 10.10.168.148 GET /system/info
 ```
 
+Automatically infer the local LAN and look for NANO RTK devices:
+
+```bash
+python skills/nano-rtk-config/scripts/nano_rtk_api.py --discover-local
+```
+
+For technical use, you can also scan a specific subnet directly:
+
+```bash
+python skills/nano-rtk-config/scripts/nano_rtk_api.py --discover-subnet 192.168.4.0/24
+```
+
 Check runtime status:
 
 ```bash
@@ -147,6 +161,15 @@ The helper script accepts:
 - IP, hostname, or full base URL
 - short paths like `/system/info`, auto-expanded to `/api/v1/system/info`
 - full API paths like `/api/v1/system/info`, sent unchanged
+- local-network discovery with `--discover-local`, which infers likely local IPv4 subnets and scans them automatically
+- subnet discovery with `--discover-subnet`, which first finds reachable port `80` services and then confirms the device through `GET /system/info`
+- discovery uses host-level concurrency by default for faster LAN scans without manual segment tuning
+
+For user-facing prompts, prefer natural requests such as:
+
+- `Find the NANO RTK device on my local network.`
+- `Discover NANO RTK receivers on the LAN.`
+- `Help me find the IP address of my NANO RTK Receiver.`
 
 ## Publish checklist
 
