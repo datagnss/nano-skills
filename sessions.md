@@ -15,3 +15,6 @@
 - Added `skills/nano-rtk-config/scripts/nano_rtk_api.py` so the skill can issue repeatable HTTP API requests without ad hoc `curl` commands.
 - Expanded `skills/nano-rtk-config/references/api.md` with usage guidance for read vs write endpoints and practical request patterns.
 - Added repository-level `README.md` and `.gitignore` to make the repo easier to validate and publish.
+- Expanded `README.md` with installation steps, trigger examples, helper script usage, and the recommended branch-to-PR development flow.
+- Replaced the remaining non-English README trigger examples with English wording for a fully English publish-facing README.
+- Added a repository-level `SKILL.md` as an installer entrypoint so future users can ask Codex to install `nano-rtk-config` directly from this repo.
