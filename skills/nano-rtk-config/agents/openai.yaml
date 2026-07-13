@@ -1,7 +1,6 @@
 interface:
   display_name: "NANO RTK Config"
-  short_description: "Use an IP to configure NANO RTK over HTTP"
-  default_prompt: "Use $nano-rtk-config to configure a NANO RTK device when I provide its IP address."
+  short_description: "Configure DATAGNSS NANO RTK Receiver over HTTP"
+  default_prompt: "Use $nano-rtk-config to configure a DATAGNSS NANO RTK Receiver when I provide its IP address."
 policy:
   allow_implicit_invocation: true
-

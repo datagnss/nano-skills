@@ -1,6 +1,6 @@
 ---
 name: nano-rtk-config
-description: Configure NANO RTK devices over the HTTP API when the user provides the device IP or asks for Wi-Fi, GNSS, NTRIP, RTCM, TCP server, reboot, status, or firmware operations.
+description: Configure DATAGNSS NANO RTK Receiver devices over the HTTP API when the user provides the device IP or asks for firmware, status, Wi-Fi, GNSS, NTRIP, RTCM, TCP server, reboot, or related device operations.
 ---
 
 # NANO RTK Config

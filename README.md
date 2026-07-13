@@ -1,14 +1,18 @@
 # nano-skills
 
-This repository contains reusable Codex skills for DATAGNSS workflows.
+This repository contains reusable Codex skills for DATAGNSS devices and workflows.
+
+The current published skill is specifically for the **DATAGNSS NANO RTK Receiver** product line.
+
+Company website: [www.datagnss.com](https://www.datagnss.com)
 
 ## Included skill
 
-- `skills/nano-rtk-config`: configure and inspect NANO RTK devices over the HTTP API
+- `skills/nano-rtk-config`: configure and inspect **DATAGNSS NANO RTK Receiver** devices over the HTTP API
 
 ## What `nano-rtk-config` covers
 
-Use this skill when a NANO RTK device is reachable by IP or hostname and Codex needs to:
+Use this skill when a **DATAGNSS NANO RTK Receiver** is reachable by IP or hostname and Codex needs to:
 
 - query firmware, model, GNSS version, or device ID
 - inspect runtime status, features, or full config
@@ -31,19 +35,40 @@ sessions.md
 
 ## Install
 
-Install the skill into Codex's local skills directory:
+Install the skill into Codex's local skills directory.
+
+1. Clone or download this repository to a local working directory.
+2. Go to the repository root.
+3. Copy `skills/nano-rtk-config` into `${CODEX_HOME:-$HOME/.codex}/skills`.
+4. Verify that the installed folder contains `SKILL.md`, `agents/openai.yaml`, `references/`, and `scripts/`.
+
+Install the skill:
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R skills/nano-rtk-config "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-If you are iterating locally, replacing the existing directory is usually enough:
+Verify the installation:
+
+```bash
+find "${CODEX_HOME:-$HOME/.codex}/skills/nano-rtk-config" -maxdepth 2 -type f | sort
+```
+
+If you are updating an existing local installation, replacing the existing directory is usually enough:
 
 ```bash
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/nano-rtk-config"
 cp -R skills/nano-rtk-config "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
+
+Validate the installed skill metadata:
+
+```bash
+python /home/rinex20/.codex/skills/.system/skill-creator/scripts/quick_validate.py "${CODEX_HOME:-$HOME/.codex}/skills/nano-rtk-config"
+```
+
+The repository also includes a root-level [SKILL.md](/data/rinex20/work/nano-skills/SKILL.md) that acts as an installer entrypoint for future Codex-driven installation flows.
 
 ## Trigger examples
 
@@ -62,6 +87,12 @@ Validate the skill metadata:
 
 ```bash
 python /home/rinex20/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/nano-rtk-config
+```
+
+Validate the repository installer entrypoint:
+
+```bash
+python /home/rinex20/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
 ```
 
 Query a device with the bundled helper:

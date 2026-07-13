@@ -1,11 +1,15 @@
 ---
 name: datagnss-skill-installer
-description: Install DATAGNSS Codex skills from this repository when the user asks to install, sync, or update a skill such as nano-rtk-config from a local path or GitHub repo. Use this to select the right skill folder, copy it into the local Codex skills directory, and verify the installation.
+description: Install DATAGNSS Codex skills from this repository when the user asks to install, sync, or update a skill such as the DATAGNSS NANO RTK Receiver skill `nano-rtk-config` from a local path or GitHub repo. Use this to select the right skill folder, copy it into the local Codex skills directory, and verify the installation.
 ---
 
 # DATAGNSS Skill Installer
 
 Install skills from this repository into the local Codex skills directory.
+
+This repository currently ships one product-specific skill for the **DATAGNSS NANO RTK Receiver**.
+
+Company website: [www.datagnss.com](https://www.datagnss.com)
 
 ## Default target
 
@@ -15,7 +19,7 @@ Install skills from this repository into the local Codex skills directory.
 ## Available skill
 
 - `skills/nano-rtk-config`
-  - Configure and inspect NANO RTK devices over the HTTP API.
+  - Configure and inspect **DATAGNSS NANO RTK Receiver** devices over the HTTP API.
   - Use when the user wants firmware, status, GNSS, Wi-Fi, RTCM, NTRIP, TCP server, external port, reboot, or similar device operations by IP or hostname.
 
 ## Installation workflow
@@ -29,6 +33,40 @@ Install skills from this repository into the local Codex skills directory.
    - `agents/openai.yaml` when present
    - `references/` and `scripts/` when present
 6. If the repository also contains a usage `README.md`, point the user to it for examples.
+
+## Complete installation steps
+
+Install `nano-rtk-config` from a local checkout of this repository:
+
+1. Change into the repository root.
+2. Create the destination directory:
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+```
+
+3. Copy the skill folder:
+
+```bash
+cp -R skills/nano-rtk-config "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+4. Verify the installed files:
+
+```bash
+find "${CODEX_HOME:-$HOME/.codex}/skills/nano-rtk-config" -maxdepth 2 -type f | sort
+```
+
+5. Validate the installed skill metadata:
+
+```bash
+python /home/rinex20/.codex/skills/.system/skill-creator/scripts/quick_validate.py "${CODEX_HOME:-$HOME/.codex}/skills/nano-rtk-config"
+```
+
+6. Start using the installed skill with prompts such as:
+   - `The device is 10.10.168.148. Check the firmware version.`
+   - `Inspect the current status on 10.10.168.148.`
+   - `Switch 10.10.168.159 to rover mode and configure the NTRIP client.`
 
 ## Install commands
 
