@@ -21,6 +21,16 @@ Use this skill when a **DATAGNSS NANO RTK Receiver** is reachable by IP or hostn
 
 The skill is read-first by default and avoids reset, reboot, or firmware update unless the user clearly asks for them.
 
+## First-time device access
+
+If the user asks how to start using a **NANO RTK Receiver** before they know the device IP, guide them through the initial Wi-Fi setup first:
+
+1. Search for the device SSID in the form `NANO_RTK_xxxx`.
+2. Connect to that Wi-Fi using password `datagnss`.
+3. Open `http://192.168.4.1` in a browser.
+4. In the web settings page, enter the STA-mode Wi-Fi SSID and password for the target local network.
+5. After the receiver joins that LAN and gets an IP address, continue with IP-based configuration using `nano-rtk-config`.
+
 ## Repository layout
 
 ```text
