@@ -23,5 +23,6 @@
 - Added the DATAGNSS company website `https://www.datagnss.com` to the repository entry documents.
 - Added first-time onboarding guidance to `README.md` and `skills/nano-rtk-config/SKILL.md` covering the `NANO_RTK_xxxx` SSID, password `datagnss`, access to `192.168.4.1`, STA Wi-Fi setup, and LAN IP acquisition before API-based configuration.
 - Added a reusable standard onboarding reply to `skills/nano-rtk-config/SKILL.md` so broad "How do I use it?" requests can be answered consistently in the user's own language before IP-based configuration begins.
+- Removed `sessions.md` from `.gitignore` so the repository-level session log can be committed normally for LAN-only collaboration.
 - Added a first-use onboarding flow to `README.md` and `skills/nano-rtk-config/SKILL.md` so users are guided to join `NANO_RTK_xxxx`, use password `datagnss`, open `192.168.4.1`, configure STA Wi-Fi, and then retrieve the LAN IP for follow-up configuration.
 - Added a reusable standard onboarding reply to `skills/nano-rtk-config/SKILL.md` so broad "How do I use it?" requests can be answered consistently in the user's own language before IP-based configuration begins.
