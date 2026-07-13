@@ -23,13 +23,26 @@ The skill is read-first by default and avoids reset, reboot, or firmware update 
 
 ## First-time device access
 
-If the user asks how to start using a **NANO RTK Receiver** before they know the device IP, guide them through the initial Wi-Fi setup first:
+If the user is getting started with a **NANO RTK Receiver** and does not yet know the device IP, use this first-use setup flow:
 
 1. Search for the device SSID in the form `NANO_RTK_xxxx`.
 2. Connect to that Wi-Fi using password `datagnss`.
 3. Open `http://192.168.4.1` in a browser.
-4. In the web settings page, enter the STA-mode Wi-Fi SSID and password for the target local network.
-5. After the receiver joins that LAN and gets an IP address, continue with IP-based configuration using `nano-rtk-config`.
+4. In the web settings page, enter the Wi-Fi name and password for the local network the receiver should join.
+5. After the receiver connects to that network and gets an IP address, continue with IP-based configuration using `nano-rtk-config`.
+
+Example user-facing reply:
+
+```text
+To get started with the NANO RTK Receiver:
+
+1. Look for the Wi-Fi network named `NANO_RTK_xxxx`.
+2. Connect to it using the password `datagnss`.
+3. Open `http://192.168.4.1` in your browser.
+4. In the web settings page, enter the Wi-Fi name and password for your local network.
+5. Wait for the receiver to connect and obtain an IP address.
+6. Once you have the IP address, you can continue with the next setup steps.
+```
 
 ## Repository layout
 
@@ -105,6 +118,12 @@ Validate the repository installer entrypoint:
 python /home/rinex20/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
 ```
 
+Run the unit tests:
+
+```bash
+python -m unittest discover -s tests -p 'test_*.py'
+```
+
 Query a device with the bundled helper:
 
 ```bash
@@ -133,8 +152,9 @@ The helper script accepts:
 
 1. Validate `skills/nano-rtk-config`.
 2. Verify at least one read-only request against a live device.
-3. Review `sessions.md`.
-4. Commit on a dedicated branch before publishing.
+3. Run `python -m unittest discover -s tests -p 'test_*.py'`.
+4. Review `sessions.md`.
+5. Commit on a dedicated branch before publishing.
 
 ## Development flow
 

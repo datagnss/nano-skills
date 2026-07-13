@@ -7,24 +7,37 @@ description: Configure DATAGNSS NANO RTK Receiver devices over the HTTP API when
 
 Use this skill when the user wants to inspect or configure a NANO RTK device and can provide the device IP or hostname.
 
-If the user asks how to start using a NANO RTK Receiver or does not yet know the device IP, first guide them through initial access:
-
-1. Search for the device Wi-Fi SSID in the form `NANO_RTK_xxxx`.
-2. Connect to that Wi-Fi using password `datagnss`.
-3. Open `http://192.168.4.1` in a browser to access the web settings page.
-4. Enter the target STA-mode Wi-Fi SSID and password so the receiver can join the local network.
-5. After the device joins the LAN and obtains an IP address, continue with API-based configuration by IP.
-
-## Standard onboarding reply
-
-When the user asks a broad question such as "How do I use it?" and does not yet provide the device IP, reply in the user's language with a short guided setup like this:
+If the user asks how to start using a NANO RTK Receiver or does not yet know the device IP, start with a simple first-use setup flow:
 
 1. Search for the device Wi-Fi SSID in the form `NANO_RTK_xxxx`.
 2. Connect to that Wi-Fi using password `datagnss`.
 3. Open `http://192.168.4.1` in a browser.
-4. In the web settings page, enter the STA-mode Wi-Fi SSID and password for the target local network.
-5. Wait for the receiver to join that LAN and obtain an IP address.
-6. Use that IP address for follow-up configuration such as status checks, Wi-Fi updates, GNSS settings, NTRIP, RTCM, or TCP server setup.
+4. On the web settings page, enter the Wi-Fi name and password for the local network the receiver should join.
+5. After the receiver connects to that network and gets an IP address, continue with IP-based configuration.
+
+## Standard onboarding reply
+
+When the user asks a broad question such as "How do I use it?" and does not yet provide the device IP, reply in the user's language with a short end-user-facing setup like this:
+
+1. Search for the device Wi-Fi SSID in the form `NANO_RTK_xxxx`.
+2. Connect to that Wi-Fi using password `datagnss`.
+3. Open `http://192.168.4.1` in a browser.
+4. In the web settings page, enter the Wi-Fi name and password for the local network you want the receiver to join.
+5. Wait for the receiver to connect and get an IP address on that network.
+6. Use that IP address for the next steps such as checking status or configuring Wi-Fi, GNSS, NTRIP, RTCM, or the TCP server.
+
+Example English reply:
+
+```text
+To get started with the NANO RTK Receiver:
+
+1. Look for the Wi-Fi network named `NANO_RTK_xxxx`.
+2. Connect to it using the password `datagnss`.
+3. Open `http://192.168.4.1` in your browser.
+4. In the web settings page, enter the Wi-Fi name and password for your local network.
+5. Wait for the receiver to connect and obtain an IP address.
+6. Once you have the IP address, you can continue with the next setup steps such as checking status or configuring Wi-Fi, GNSS, NTRIP, RTCM, or the TCP server.
+```
 
 ## Core rules
 
