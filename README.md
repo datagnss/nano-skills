@@ -14,6 +14,8 @@ Copy the following sentence to codex:
 Please refer to https://github.com/datagnss/nano-skills to install this skill.
 ```
 
+Codex will help you to install it.
+
 ## Included skill
 
 - `skills/nano-rtk-config`: configure and inspect **DATAGNSS NANO RTK Receiver** devices over the HTTP API
