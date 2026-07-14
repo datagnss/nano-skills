@@ -53,7 +53,6 @@ skills/
     agents/openai.yaml
     references/
     scripts/
-sessions.md
 ```
 
 ## Install
