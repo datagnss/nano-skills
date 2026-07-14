@@ -4,7 +4,15 @@ This repository contains reusable Codex skills for DATAGNSS devices and workflow
 
 The current published skill is specifically for the **DATAGNSS NANO RTK Receiver** product line.
 
-Company website: [www.datagnss.com](https://www.datagnss.com)
+Website: [www.datagnss.com](https://www.datagnss.com)
+
+## How to install
+
+Copy the following sentence to codex:
+
+```
+Please refer to https://github.com/datagnss/nano-skills to install this skill.
+```
 
 ## Included skill
 
